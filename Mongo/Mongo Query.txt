@@ -1,0 +1,41 @@
+=>Create db or switch db
+use mern;
+
+=>create collection
+db.createCollection("mern_db");
+
+=> view all Databases
+show dbs;
+
+=>Delete Database
+db.dropDatabase();
+
+=> view all collection in Database
+show collections;
+
+=>Delete collection
+db.mern_db.drop();
+
+=> show all documents
+db.mern_db.find()
+
+=>insert one document in collection
+db.mern_db.insertOne({name:"Talha",age:25,email:"talhanonari@gmail.com"});
+
+=> insert many documents
+db.mern_db.insertMany([
+    {name:"akmal",age:21,email:"akmalmurad@gmail.com"},
+    {name:"ali",age:19,email:"alisher@gmail.com"},
+    {name:"ahmad",age:24,email:"ahmijutt321@gmail.com"},
+    {name:"younas",age:24,email:"younasgujjar714@gmail.com"}
+])
+
+=>find in collection
+db.mern_db.find({name:"ahmad"});
+
+=> update a document
+db.mern_db.updateOne({name: 'younas'},
+{$set:     {name:"younas",age:25, email:"younasniko714@gmail.com"}})
+
+=> Delete a document
+db.mern_db.findOneAndDelete({name: 'ali'})
