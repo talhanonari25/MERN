@@ -1,12 +1,28 @@
-const dbConnect = require('./mongoDb')
+const express=require('express');
+const Router = require('./Routes/routes');
+require('./Config');
+const app=express();
 
-const dbData = async ()=>{
-    let data = await dbConnect();
-    data = await data.find().toArray();
-    console.log(data)
-}
+app.use(express.json());
+app.use("/",Router);
 
-dbData();
+app.listen(4000,()=>{
+    console.log('Server is Running on Port 4000')
+});
+
+
+
+
+
+// const dbConnect = require('./mongoDb')
+
+// const dbData = async ()=>{
+//     let data = await dbConnect();
+//     data = await data.find().toArray();
+//     console.log(data)
+// }
+
+// dbData();
 
 // app.get('',(req, res)=>{
 //     res.send('WelCome To HomePage!!!')
